@@ -88,3 +88,7 @@
 " Turns on/ Toggles Ansi Escape code-colorization of console-captured output
 ":AnsiEsc
 
+"Fix a vim-background erase bug as noted in: https://github.com/microsoft/terminal/issues/832
+:set t_ut=""
+" Note since in vimrc, I did not need to re-trigger a background redraw by pressing CTRL-L
+
