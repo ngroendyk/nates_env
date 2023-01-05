@@ -1,0 +1,25 @@
+#!/bin/bash
+# Written By: Nate
+# Purpose: make the cscope files, and build the cscope db for vim.
+# We do extentions: .cpp, .c, .h, .hpp
+
+
+#Backup pwd
+CurDir="$PWD"
+
+#create a list of files.
+find "$1" -name "*.c" > /tmp/cscope.files
+find "$1" -name "*.cpp" >> /tmp/cscope.files
+find "$1" -name "*.h" >> /tmp/cscope.files
+find "$1" -name "*.hpp" >> /tmp/cscope.files
+
+#Now build the dbase. -b is the dbase only flag. -q inverted indices dbases too,
+# -k dont to lookups in standard header libs (b/c we are a cross compiled os)
+cd /tmp
+cscope -b -q -k
+
+export CSCOPE_DB="/tmp/cscope.out"
+
+#restore original pwd
+cd "$CurDir"
+

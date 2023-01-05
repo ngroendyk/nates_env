@@ -1,7 +1,7 @@
 #!/bin/bash
 # Written By: Nate
 # Date: 20 Mar 2018
-# Purpose: Run a project wide ctaging, diving into all the subdirectories, generate the local tag files, as well as the master tag file to connect the sub-components.
+# Purpose: Run a project wide ctaging, dividing into all the subdirectories, generate the local tag files, as well as the master tag file to connect the sub-components.
 # User must pass the project home path as parm 1
 
 if [ -z "$1" ]

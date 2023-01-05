@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Arg 1: $1"
+echo "Arg 2: $2"
+echo "Arg 3: $3"
+
+if [[ $2 = "-i" ]]; then
+	find "$PWD" -name "*.${1}"| xargs -d '\n' grep -H -n -i "$3" 2>/dev/null
+else
+	find "$PWD" -name "*.${1}"| xargs -d '\n' grep -H -n "$2" 2>/dev/null
+fi
+

@@ -1,3 +1,4 @@
 "The ** means look recursively after that dir for file.
 ":set path +=/DIR_TO_STUFF_TO_gf_FROM/**
 
+
