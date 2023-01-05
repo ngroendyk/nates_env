@@ -2,8 +2,13 @@
 "Written By: Nate Groendyk
 "Date: 14 March 2018 (Happy PI day)
 "Notes: Make sure the plugins are installed in .vim. Also a  bunch of this was
-"agregated from other sources, and I hacked-guessed the vimscript syntax to
+"aggregated from other sources, and I hacked-guessed the vimscript syntax to
 "get a few of the fine-tunings working as desired.
+
+" Set the modelines.. pretty nice. allows you to encode vim commands in the doc you are reading.
+" https://stackoverflow.com/questions/4590191/why-does-vim-ignore-my-modeline-values/41994024#41994024
+:set modeline
+:set modelines=5
 
 :set background=dark
 :highlight Normal ctermfg=white ctermbg=black
@@ -59,16 +64,27 @@
 "Keep tag files from propogating up the source tree.
 :set tags=./tags;,tags
 
-:set textwidth=80
+" Example of conditionally adding a specific tag file
+":if filereadable("${some_path_here}/tags")
+":   set tags+="${some_path_here}"
+":endif
+
+
+":set textwidth=80
 
 "Automatically change working directory to the current file....hopefully it
 "doesnt screw up plugins
 
 "Basically a #include....to include additional paths seperately.
-:source $HOME/vim_srcPath.vimrc_inc
 
 "Source this for debugging
-:source $HOME/vimDbug.inc
+:if filereadable("$HOME/vimDbug.inc")
+:   source $HOME/vimDbug.inc
+:endif
 
+"source this for cscope bindings rather than deal with plugin hasle
+:source $HOME/.cscope_maps.vimrc
 
+" Turns on/ Toggles Ansi Escape code-colorization of console-captured output
+":AnsiEsc
 
